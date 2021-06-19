@@ -1,0 +1,344 @@
+{% extends "base.html" %}
+{% load static %}
+{% block carousel %}
+
+<head>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous"
+  />
+
+  <style media="screen">
+  .jumbotron {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      background-color: #03a1fc;
+      border-radius: .3rem;
+      padding-top: 2rem;
+      margin-top: 2rem
+      }
+  </style>
+  <style media="screen">
+  /* @media only screen AND (max-width: 1000px) {
+  .mobileHidden {
+    display: none;
+  }
+  .mobileshow{
+    display:inline;
+  }
+  .mobile-heading {
+      font-size: 5vh;
+    }
+  } */
+
+  @media screen and (min-width: 0px) and (max-width: 700px) {
+    .mobileHidden{
+      display:none;
+    }
+  }
+
+  @media screen and (min-width: 701px) and (max-width: 3000px) {
+    .desktophidden{
+      display:none;
+    }
+
+  }
+
+  </style>
+</head>
+
+<div class="slider mobileHidden">
+  <div class="slide current">
+    <div class="content">
+      <h1>Welcome to ZoomAttendance</h1>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="content">
+      <h3>ZoomAttendance is a one of a kind tool which can be used to take attendance during Zoom meetings for any kind of account!</h3>
+      <p>
+
+      </p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="content">
+      <h3>After the meeting ends, personalized reports will be generated based on metrics selected by you!</h3>
+      <p>
+
+      </p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="content">
+      <h3>Zoom Attendance is free of cost and easy to use. Sign up and get started now!</h3>
+      <p>
+
+      </p>
+    </div>
+  </div>
+</div>
+<div class="buttons mobileHidden">
+  <button id="prev"><i class="fas fa-arrow-left"></i></button>
+  <button id="next"><i class="fas fa-arrow-right"></i></button>
+</div>
+
+<script src="main.js"></script>
+
+
+<div class="container jumbotron text-center desktophidden">
+  <h1 style="font-size:6vh">Welcome to ZoomAttendace</h1>
+</div>
+
+<div class="container jumbotron  text-center mobileHidden">
+<a id = "About"> <h1 style="font-size:8vh">What is ZoomAttendance</h1></a>
+<p style="font-size:4vh">
+  Zoom Attendance is a plugin which can be used to take attendance during and after meetings.<br> During meetings, it can display all the current participants in the meeting and all those who had joined and left the meeting at that instant. Attendance can be taken from a pre-uploaded list.<br> After each meeting is over, it can be used to display a report of all the participants, i.e., the time when each participant first joined, the time when each participant left the meeting, total duration spent by the participant in the meeting and how many times did the participant leave the meeting.
+</p>
+</div>
+
+<div class="container jumbotron  text-center desktophidden">
+  <a id = "About"> <h1 style="font-size:6vh" >What is ZoomAttendance</h1></a>
+  <p style="font-size:3vh">
+    Zoom Attendance is a plugin which can be used to take attendance during and after meetings. During meetings, it can display all the current participants in the meeting and all those who had joined and left the meeting at that instant. Attendance can be taken from a pre-uploaded list of names. These lists are uploaded by the user in excel format. After each meeting is over, it can be used to display a report of all the participants, i.e., the time when each participant first joined, the time when each participant left the meeting, total duration spent by the participant in the meeting and how many times did the participant leave the meeting. A flagged section is also available where it will display all the participants who were late to the meeting, who left early and also who did not spend an adequate amount of time in the meeting. The time which is considered to be late, early and the minimum duration can all be set by the user himself.
+  </p>
+</div>
+
+<div class="container jumbotron  text-center mobileHidden">
+<a id = "Whyusezoomattendance"> <h1 style="font-size:8vh">Why use ZoomAttendance?</h1></a>
+<p style="font-size:4vh">
+  ZoomAttendance generates reports after every meeting which highlights the entry time, leave time and duration spent in meeting of every participant. The teachers can set metrics such as the minimum duration every student must spend in class, how much time after the meeting has started is a student considered to be late, and how early is a student allowed to leave. If any participant fails to follow any of these criteria, they will be flagged by the app. Thus, the teachers do not need to waste their time tracking the entry and exit of every student and can focus solely on teaching.
+  </p>
+</div>
+
+<div class="container jumbotron  text-center desktophidden">
+  <a id = "Whyusezoomattendance"> <h1 style="font-size:6vh" >Why use ZoomAttendance?</h1></a>
+  <p style="font-size:3vh">
+    ZoomAttendance generates reports after every meeting which highlights the entry time, leave time and duration spent in meeting of every participant. The teachers can set metrics such as the minimum duration every student must spend in class, how much time after the meeting has started is a student considered to be late, and how early is a student allowed to leave. If any participant fails to follow any of these criteria, they will be flagged by the app. Thus, the teachers do not need to waste their time tracking the entry and exit of every student and can focus solely on teaching.
+      </p>
+</div>
+
+<div class="container jumbotron  text-center mobileHidden">
+<a id = ""> <h1 style="font-size:8vh">How to use it?</h1></a>
+<p style="font-size:4vh">
+  To use ZoomAttendance all you need to do is sign up! However, before signing up a few steps need to be taken from your zoom account to enable this app to get data about your meetings from Zoom. The instructions for making these configurations are available <a href="{% url 'setup' %}">here</a>.</p>
+</div>
+
+<div class="container jumbotron  text-center desktophidden">
+  <a id = ""> <h1 style="font-size:6vh" >How to use it?</h1></a>
+  <p style="font-size:3vh">
+    To use ZoomAttendance all you need to do is sign up! However, Before signing up, a few steps need to be taken from your zoom account to enable this app to get data about your meetings from Zoom. The instructions for making these configurations are available <a href="{% url 'setup' %}">here</a>.</p>
+</div>
+
+<div class="container jumbotron  text-center mobileHidden">
+<a id = "About"> <h1 style="font-size:8vh">How does it work?</h1></a>
+<p style="font-size:4vh">
+  ZoomAttendance uses a feature of Zoom Development called Webhooks. These webhooks send information to ZoomAttendance whenever an event such as a participant joins or leaves the meeting occurs and ZoomAttendance stores it and compiles a list of all such relevant events. These are then converted to readable format and into relevant sections such as reports, flagged participants, etc. All of this happens via the servers of zoom. Thus, it will not interfere with the working of the Zoom Client app on your device or on any of your participants’ devices. Thus, even if the server of ZoomAttendace crashes it will not harm your meetings. Also, if you enable this feature will in no way slow your zoom meetings or cause it to crash. </p>
+</div>
+
+<div class="container jumbotron  text-center desktophidden">
+  <a id = "About"> <h1 style="font-size:6vh" >How does it work?</h1></a>
+  <p style="font-size:3vh">
+  ZoomAttendance uses a feature of Zoom Development called Webhooks. These webhooks send information to ZoomAttendance whenever an event such as a participant joins or leaves the meeting occurs and ZoomAttendance stores it and compiles a list of all such relevant events. These are then converted to readable format and into relevant sections such as reports, flagged participants, etc. All of this happens via the servers of zoom. Thus, it will not interfere with the working of the Zoom Client app on your device or on any of your participants’ devices. Thus, even if the server of ZoomAttendace crashes it will not harm your meetings. Also, if you enable this feature will in no way slow your zoom meetings or cause it to crash. </p>
+</div>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: 'Roboto', sans-serif;
+color: #fff;
+line-height: 1.6;
+}
+
+.slider {
+position: relative;
+overflow: hidden;
+height: 90vh;
+width: 99vw;
+}
+
+.slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+opacity: 1;
+}
+
+.slide .content {
+position: absolute;
+bottom: 70px;
+left: -600px;
+opacity: 0;
+width: 600px;
+background-color: rgba(255, 255, 255, 0.8);
+color: #333;
+padding: 35px;
+}
+
+.slide .content h1 {
+margin-bottom: 10px;
+}
+
+.slide.current .content {
+opacity: 1;
+transform: translateX(600px);
+transition: all 0.7s ease-in-out 0.3s;
+}
+
+.buttons button#next {
+position: absolute;
+top: 40%;
+right: 15px;
+}
+
+.buttons button#prev {
+position: absolute;
+top: 40%;
+left: 15px;
+}
+
+.buttons button {
+border: 2px solid #fff;
+background-color: transparent;
+color: #fff;
+cursor: pointer;
+padding: 13px 15px;
+border-radius: 50%;
+outline: none;
+}
+
+.buttons button:hover {
+background-color: #fff;
+color: #333;
+}
+
+@media (max-width: 500px) {
+.slide .content {
+  bottom: -300px;
+  left: 0;
+  width: 100%;
+}
+
+.slide.current .content {
+  transform: translateY(-300px);
+}
+}
+
+
+
+/* Backgorund Images */
+
+.slide:first-child {
+background: url('https://zoomattendance.pythonanywhere.com/static/accounts/pic1.jpg') no-repeat
+  center top/cover;
+}
+.slide:nth-child(2) {
+background: url('https://zoomattendance.pythonanywhere.com/static/accounts/pic2.jpg') no-repeat
+  center top/cover;
+}
+.slide:nth-child(3) {
+background: url('https://zoomattendance.pythonanywhere.com/static/accounts/pic3.jpg') no-repeat
+  center top/cover;
+}
+.slide:nth-child(4) {
+background: url('https://zoomattendance.pythonanywhere.com/static/accounts/pic4.jpg') no-repeat
+  center top/cover;
+}
+/* .slide:nth-child(5) {
+background: url('https://source.unsplash.com/ULmaQh9Gvbg/1600x900') no-repeat
+  center top/cover;
+}
+.slide:nth-child(6)  {
+background: url('https://source.unsplash.com/ggZuL3BTSJU/1600x900') no-repeat
+  center center/cover;
+} */
+
+</style>
+
+<script type="text/javascript">
+const slides = document.querySelectorAll('.slide');
+const next = document.querySelector('#next');
+const prev = document.querySelector('#prev');
+const auto = true; // Auto scroll
+const intervalTime = 7500;
+let slideInterval;
+
+const nextSlide = () => {
+// Get current class
+const current = document.querySelector('.current');
+// Remove current class
+current.classList.remove('current');
+// Check for next slide
+if (current.nextElementSibling) {
+  // Add current to next sibling
+  current.nextElementSibling.classList.add('current');
+} else {
+  // Add current to start
+  slides[0].classList.add('current');
+}
+setTimeout(() => current.classList.remove('current'));
+};
+
+const prevSlide = () => {
+// Get current class
+const current = document.querySelector('.current');
+// Remove current class
+current.classList.remove('current');
+// Check for prev slide
+if (current.previousElementSibling) {
+  // Add current to prev sibling
+  current.previousElementSibling.classList.add('current');
+} else {
+  // Add current to last
+  slides[slides.length - 1].classList.add('current');
+}
+setTimeout(() => current.classList.remove('current'));
+};
+
+// Button events
+next.addEventListener('click', e => {
+nextSlide();
+if (auto) {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, intervalTime);
+}
+});
+
+prev.addEventListener('click', e => {
+prevSlide();
+if (auto) {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, intervalTime);
+}
+});
+
+// Auto slide
+if (auto) {
+// Run next slide at interval time
+slideInterval = setInterval(nextSlide, intervalTime);
+}
+</script>
+
+
+  {% block indexcontent %}{% endblock indexcontent %}
+
+
+
+{% endblock %}

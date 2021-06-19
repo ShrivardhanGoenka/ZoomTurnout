@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+  {% if meeting %}
+  <div class="jumbotron">
+  <h3>Meeting Details:</h3>
+  <ul>
+    <li>Start Time: {{starttime}}</li>
+    <li>Start Date: {{startdate}}</li>
+    <li>Topic: {{topic}}</li>
+    <li>Number of Participants: {{nparticipants}}</li>
+  </ul>
+  <h3>Participants in meeting:</h3>
+  <ul>
+    {% for i in present %}
+      <li>{{i}}</li>
+    {% endfor %}
+  </ul>
+  <br>
+  <h3>Participants who joined but left the meeting:</h3>
+  <ul>
+    {% for i in left %}
+      <li>{{i}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+  <div class="jumbotron">
+  <h3>Choose a file to take the attendance:</h3>
+  <form action="{% url 'zoom:currentmeeting' %}{{name}}" method="post">
+    {% csrf_token %}
+    <label for="File">Choose a file:</label>
+    <select name="file" id="file">
+      {% for file in files %}
+        <option value="{{file}}">{{file}}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+    {% if attendance %}
+    <h3>Absentees:</h3>
+    <ul>
+      {% for absenteename in absentees %}
+        <li>{{absenteename}}</li>
+      {% endfor %}
+    </ul>
+    <br>
+    <h3>Students who are present but not on the list:</h3>
+    <ul>
+      {% for extraname in extra %}
+        <li>{{extraname}}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    {% endif %}
+  </div>
+  {% else %}
+  {% if report %}
+  <div class="jumbotron">
+  <h2>This meeting was not found</h2>
+  </div>
+  {% else %}
+  <div class="jumbotron">
+  <h2>You are currently not in a meeting</h2>
+  <h3>Go to <a href="{% url 'zoom:reports' %}">Meeting Logs</a> to access reports of previous meetings</h3>
+  </div>
+
+  {% endif %}
+
+  {% endif %}
+{% endblock %}

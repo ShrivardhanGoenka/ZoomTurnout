@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load django_bootstrap5%}
+
+{% block content %}
+<div class="jumbotron text-center">
+
+  <div class="text-center">
+  <h2>Metrics</h2>
+  <h5>This is the metrics section. You can use these following categories to generate personalized reports.</h5>
+  <h5>All Participants of the meeting who fail to follow these metrics will be flagged on the reports page.</h5>
+  </div>
+  <br>
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    <label for="allow late">The max number of minutes a participant can be late: </label>
+    <select class="" name="late">
+      {% for i in l1 %}
+        {% ifequal i d1  %}
+        <option value="{{i}}" selected>{{i}}</option>
+        {% else %}
+        <option value="{{i}}">{{i}}</option>
+        {% endifequal %}
+      {% endfor %}
+    </select>
+    <br><br>
+    <label for="leave early">The max number of minutes early the user can leave the meeting:</label>
+    <select class="" name="leave" value="5">
+      {% for i in l2 %}
+        {% ifequal i d2  %}
+        <option value="{{i}}" selected>{{i}}</option>
+        {% else %}
+        <option value="{{i}}">{{i}}</option>
+        {% endifequal %}
+      {% endfor %}
+    </select>
+    <br><br>
+    <label for="leave early">The minimum duration a participant must spend in a meeting:</label>
+    <select class="" name="duration" value="5">
+      {% for i in l3 %}
+        {% ifequal i d3  %}
+        <option value="{{i}}" selected>{{i}}</option>
+        {% else %}
+        <option value="{{i}}">{{i}}</option>
+        {% endifequal %}
+      {% endfor %}
+    </select>
+    <br>
+    <br>
+    <div class="text-center"><input type="submit" value="Submit" onclick="return confirm('Are you sure you want to change your metrics?');" class="btn btn-primary"></div>
+  </form>
+
+
+</div>
+{% endblock %}

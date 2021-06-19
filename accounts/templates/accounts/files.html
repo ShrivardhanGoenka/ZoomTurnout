@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+<br><br>
+<div class="container jumbotron">
+    <h2>List of Files Uploaded by you:</h2>
+    <ul>
+
+    {% for name in objects %}
+      <h4><li><a href="{% url 'accounts:viewfile' %}{{name}}">{{name}}</a></li></h4>
+    {% endfor %}
+  </ul>
+</div>
+<div class="container jumbotron">
+  <h2>Upload new File:</h2>
+  <br>
+  <form action="{% url 'accounts:addfile' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="Enter Name">Please enter the name of the file: </label>
+            <input type="text" name="name" value="" required="required">
+            <br><br>
+            <input type="file"
+                   id = 'file'
+                   title="Upload excel file"
+                   name="excel_file"
+                   style="border: 1px solid black; padding: 5px;"
+                   required="required"
+                   onchange="return fileValidation()">
+            <br>
+            <br>
+            {% bootstrap_button button_type="submit" content="Submit" %}
+        </form>
+</div>
+
+<script>
+        function fileValidation() {
+            var fileInput =
+                document.getElementById('file');
+
+            var filePath = fileInput.value;
+
+            // Allowing file type
+            var allowedExtensions =
+/(\.xlsx)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type. Please enter an excel file(.xlsx)');
+                fileInput.value = '';
+                return false;
+            }
+        }
+    </script>
+
+{% endblock %}

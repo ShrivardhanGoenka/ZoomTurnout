@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+  {% if report %}
+  <div class="jumbotron">
+
+  <h2>Meeting Details</h2>
+  <ul>
+    <li>Topic : {{meeting.topic}}</li>
+    <li>Start time: {{meeting.starttime}}</li>
+    <li>Start Date: {{meeting.startdate}}</li>
+    <li>End Time: {{meeting.endtime}}</li>
+    <li>Duration: {{meeting.duration}} minutes</li>
+
+  </ul>
+
+  </div>
+  <div class="jumbotron">
+    <h2>Report:</h2>
+    <div class="table-responsive">
+
+    <table style="width:100%" class="styled-table">
+      <tr>
+        <th>Name</th>
+        <th>Time joined</th>
+        <th>Time left</th>
+        <th>Number of times left</th>
+        <th>Duration in meeting</th>
+      </tr>
+      {% for object in report %}
+        <tr>
+          <td>{{object.name}}</td>
+          <td>{{object.firstjoined}}</td>
+          <td>{{object.timeleft}}</td>
+          <td>{{object.numberoftimesleft}}</td>
+          <td>{{object.duration}} minutes</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  </div>
+
+  <div class="jumbotron">
+    <h2>Flagged:</h2>
+    <br>
+    <h3>Flagged due to being late</h3>
+    <div class="table-responsive">
+    <table style="width:100%" class="styled-table">
+      <tr>
+        <th>Name</th>
+        <th>Late by</th>
+        <th>Join time</th>
+      </tr>
+      {% for object in flagged_late %}
+        <tr>
+          <td>{{object.name}}</td>
+          <td>{{object.late}} minutes</td>
+          <td>{{object.jointime}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <br>
+  <h3>Flagged due to leaving early</h3>
+  <div class="table-responsive">
+  <table style="width:100%" class="styled-table">
+    <tr>
+      <th>Name</th>
+      <th>Left early by</th>
+      <th>Leave time</th>
+    </tr>
+    {% for object in flagged_early %}
+      <tr>
+        <td>{{object.name}}</td>
+        <td>{{object.early}} minutes</td>
+        <td>{{object.leavetime}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+
+    <br>
+    <h3>Flagged due to not spending enough time in the meeting</h3>
+    <div class="table-responsive">
+    <table style="width:100%" class="styled-table">
+      <tr>
+        <th>Name</th>
+        <th>Duration in the meeting</th>
+      </tr>
+      {% for object in flagged_duration %}
+        <tr>
+          <td>{{object.name}}</td>
+          <td>{{object.duration}} minutes</td>
+        </tr>
+      {% endfor %}
+    </table>
+    </div>
+
+  </div>
+
+
+  <div class="jumbotron">
+  <h3>Choose a file to take the attendance:</h3>
+  <form action="{% url 'zoom:viewreport' %}{{path}}" method="post">
+    {% csrf_token %}
+    <label for="File">Choose a file:</label>
+    <select name="file" id="file">
+      {% for file in files %}
+        <option value="{{file}}">{{file}}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <br>
+
+    {% if attendance %}
+    <h3>Absentees:</h3>
+    <ul>
+      {% for absenteename in absentees %}
+        <li>{{absenteename}}</li>
+      {% endfor %}
+    </ul>
+    <br>
+    <h3>Participants who were present but not on the list:</h3>
+    <ul>
+      {% for absenteename in extra %}
+        <li>{{absenteename}}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    {% endif %}
+
+
+
+  {% else %}
+  <div class="jumbotron">
+
+    <h2>The report was not found</h2>
+  </div>
+  {% endif %}
+
+<style>
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  .styled-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+  }
+  .styled-table th,
+  .styled-table td {
+      padding: 12px 15px;
+  }
+  .styled-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+  }
+
+  .styled-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  }
+
+  .styled-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+  }
+</style>
+
+
+{% endblock %}

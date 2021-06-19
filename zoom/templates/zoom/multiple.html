@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+  <div class="">
+  <br><br>
+  <h2>You are in multiple meetings</h2>
+
+  <div class="table-responsive">
+
+  <table style="width:100%" class="styled-table">
+    <tr>
+      <th>Topic</th>
+      <th>Time</th>
+      <th>Date</th>
+      <th>Day</th>
+    </tr>
+    {% for l in list %}
+    <a href="{% url 'zoom:viewreport' %}{{l.Created}}">
+      <tr class = "rowcustom" id = "{{l.Created}}" >
+        <td>{{l.topic}}</td>
+        <td>{{l.time}}</td>
+        <td>{{l.date|date:"d M Y"}}</td>
+        <td>{{l.date|date:"D"}}</td>
+      </tr>
+      </a>
+    {% endfor %}
+  </table>
+</div>
+
+
+{% for l in list %}
+  <script type="text/javascript">
+  const row{{forloop.counter}} = document.getElementById(`{{l.Created}}`);
+    row{{forloop.counter}}.addEventListener("click", () => {
+    window.location.href = `{% url 'zoom:currentmeeting' %}{{l.Created}}`;
+  });
+  </script>
+{% endfor %}
+
+</div>
+
+<style>
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  .styled-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+  }
+  .styled-table th,
+  .styled-table td {
+      padding: 12px 15px;
+  }
+  .styled-table tbody tr {
+      border-bottom: 3px solid #dddddd;
+  }
+
+  /* .styled-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  } */
+
+  .styled-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+  }
+
+  .rowcustom:hover{
+    background-color: #f2f3ff;
+  outline: none;
+  cursor: pointer;
+
+  }
+</style>
+{% endblock %}

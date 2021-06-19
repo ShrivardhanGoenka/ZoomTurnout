@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <body>
+
+    {% extends "index.html" %}
+    {% block indexcontent %}
+
+    <script>
+      Swal.fire("Success", "You are now logged in", "success");
+      if({{auth}} == '0'){
+      Swal.fire({
+        title: '<strong>Error</strong>',
+        icon: 'error',
+        html:
+          'You have not added your verification token yet. Without this, the application will not work. <br>' +
+          'You can add the verification from <a href="{% url 'accounts:profile' %}">here</a>. <br>' +
+          'To confingure your zoom account, follow <a href="{% url 'setup' %}">these</a> instructions',
+        showCloseButton: true,
+        showCancelButton: false,
+        focusConfirm: false,
+        confirmButtonText:
+          '<i class="fa fa-thumbs-up"></i> OK',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        cancelButtonText:
+          '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+      })
+      if({{auth}} == '0')
+      {
+        $( function() {
+          $( "#dialog" ).dialog();
+        } );
+      }
+    }
+    </script>
+    {% endblock %}
+
+
+
+  </body>
+</html>

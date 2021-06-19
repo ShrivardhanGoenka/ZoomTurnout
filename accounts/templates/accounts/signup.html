@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+
+
+{% block content %}
+<div class="container">
+    <br> <h1>Sign Up</h1><br>
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <small>Before signing up please follow the instructions to configure your zoom account to use this application. You can find these instructions <a href="{% url 'setup' %}">here</a> </small>
+        <br>
+        <small>The names of all the participants in your meetings are kept encrypted on our database. This and your personal data will not be shared with anyone. By signing up you are giving consent for us to store this data without any liability.</small>
+        <br>
+        <div class="text-center">
+            <input type="submit" class="btn btn-primary" id="" name="" value="Sign Up">
+        </div>
+
+    </form>
+
+    <br><br>
+
+{% endblock %}

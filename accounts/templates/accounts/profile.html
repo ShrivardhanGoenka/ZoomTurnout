@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container jumbotron">
+    <h1>Profile</h1>
+    <h3>Username: {{user.username}} </h3>
+    <h3>Name: {{user.first_name}} {{user.last_name}}</h3>
+    <h3>Email: {{user.email}}</h3>
+    <h3>Verification Token: {{token}}</h3>
+    <h6> <a href="{% url 'accounts:changeverificationtoken' %}">Please click here to change/add your verification token</a> </h6>
+    <h3>Files: <a href="{% url 'accounts:files' %}">Click here to go to the files uploaded by you</a> </h3>
+    <h3>Metrics: <a href="{% url 'accounts:metrics' %}">Click here to go to the metrics uploaded by you to be used in the reports</a> </h3>
+
+    <style media="screen">
+      h3{
+        font-size:2vw
+      }
+      h1{
+        font-size:6vh
+      }
+      h6{
+        font-size:1.5vw
+      }
+    </style>
+
+</div>
+    {% endblock %}

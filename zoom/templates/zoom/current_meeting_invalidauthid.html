@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+  <h2>You have not added a verification Token for this account yet!</h2>
+  <h3>Without it this feature will not work.</h3>
+  <h3>Please click <a href="{% url 'accounts:profile' %}">here</a> to add an auth id.</h3>
+{% endblock %}

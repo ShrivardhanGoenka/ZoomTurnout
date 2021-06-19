@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <head>
+      <style media="screen">
+      img{
+        max-width: 75%;
+      }
+      </style>
+    </head>
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block content %}
+
+
+    <div class="container text-center">
+      <br><br>
+      <h1>How to set up your zoom account</h1>
+      <br><br>
+      <div class="text-left"><h4>1) Go to <a href="https://marketplace.zoom.us">marketplace.zoom.us</a>. Sign in with the account you will be using to host the meetings</h4></div>
+      <img src="{% static "accounts/page1.png" %}" alt="">
+      <br><br><br>
+      <div class="text-left"><h4>2) After signing in, go to develop and then choose build app</h4></div>
+      <img src="{% static "accounts/page2.png" %}" alt="">
+      <br><br><br>
+      <div class="text-left"><h4>3) Scroll Down a bit and choose the 'create' button in 'Webhook Only' section</h4></div>
+      <img src="{% static "accounts/page3.png" %}" alt="">
+      <br><br><br>
+      <div class="text-left"><h4>4) Give your app any appropriate name('Attendance' is a good choice).</h4></div>
+      <br><br><br>
+      <div class="text-left"><h4>5) Fill in the required information and press 'continue'. This information is not relevant and you may put your own name in the 'company name' field.</h4></div>
+      <img src="{% static "accounts/page4.png" %}" alt="">
+      <br><br><br>
+      <div class="text-left"><h4>6) This is the most important step. Please double check the following steps carefully</h4>
+      <h4>a) Switch on Event subscriptions by toggling the button</h4>
+      <h4>b) Select the 'Add new event subscription' button</h4>
+      <h4>c) Type 'Attendance' in the 'Subcription Name' and this exact url in the 'Event notification url' : http://zoomattendance.pythonanywhere.com/zoom/ . Please do not miss even the last forward slash</h4> </div>
+      <img src="{% static "accounts/page9.png" %}" alt="">
+      <div class="text-left"><h4>d) Select the 'Add events button' and add <strong>only</strong> the events depicted in the picture. Please select 'done' after adding the event types. </h4></div>
+      <img src="{% static "accounts/page6.png" %}" alt="">
+      <div class="text-left"><h4>e) Select the 'Save button'</h4></div>
+      <div class="text-left"><h4>f) Copy the verification token which appears after pressing save. Please copy this into a temporary file as you will be needing it little later. </h4></div>
+      <img src="{% static "accounts/page7.png" %}" alt="">
+      <div class="text-left"><h4>7) You should be getting the following page. If you do not please review all the steps. Please note that if you ever want to deactivate the app, i.e. stop ZoomAttendance from getting data for your zoom account you can do so by pressing the 'deactivate' button.</h4></div>
+      <img src="{% static "accounts/page8.png" %}" alt="">
+      <div class="text-left"><h4>8) Go to the ZoomAttendance website and sign up(login if you have created your account). Click on Profile and press on the link to change your verification token. Paste your verification in the text field button and press submit.</h4></div>
+      <br><br>
+      <div class="text-left">
+        <h4>Your account should now be ready. You can test it by starting a meeting and going to 'Current meeting' page. If the meeting details is displayed on the window then it confirms that it is working. If it does not work you should try all the steps below:</h4>
+        <ul>
+        <li><h4>Check the url given by you in the 'features' page in the zoom account page.</h4> </li>
+        <li><h4>Check that all the 4 events are checked in the events section. </h4></li>
+        <li><h4>Copy-paste the verification token once again. Please ensure that you didn't add an extra character(even not a space).</h4></li>
+        <li><h4>If it still does not work then please contact us.</h4></li>
+
+       </ul>
+       </div>
+
+      <br><br>
+    </div>
+
+
+
+    {% endblock %}
+
+  </body>
+</html>

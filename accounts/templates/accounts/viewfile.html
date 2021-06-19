@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<div class="container jumbotron">
+    {% ifequal name 'Not found' %}
+      <h1>The record was not found!</h1>
+    {% else %}
+      <h1>File Name: {{name}}</h1>
+      <br>
+      <h3>Names of students/Attendees: </h3>
+      {% for i in list %}
+        <ul>
+          <li> <h5>{{i}}</h5></li>
+        </ul>
+      {% endfor %}
+      <br>
+      <a href="{% url 'accounts:deletefile' %}{{name}}" onclick="return confirm('Are you sure you want to delete this item?');"><button type="button" class="btn btn-danger">Delete this record</button></a>
+
+    {% endifequal %}
+</div>
+<br><br>
+{% endblock %}
