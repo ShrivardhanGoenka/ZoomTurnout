@@ -21,7 +21,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n#5gopw6(*xh2__i&+t(n!2iusl2x169k7#ou-yl*h(3n$95+l'
+SECRET_KEY = '<generate security key using django>'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,8 +32,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'changepass.zoomturnout@gmail.com'
-EMAIL_HOST_PASSWORD = 'Nityanshi09'
+EMAIL_HOST_USER = '<put your email>'
+EMAIL_HOST_PASSWORD = '<put your password>'
 # Application definition
 
 # from django.contrib.auth.models import User, models
