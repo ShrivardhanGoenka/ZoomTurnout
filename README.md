@@ -51,6 +51,15 @@ python manage.py runserver
 More information about using custom ports and IPs can be found on the [Django documentation](https://docs.djangoproject.com/en/3.2/intro/tutorial01/#the-development-server)
 
 ## LICENCE
-[MIT](https://choosealicense.com/licenses/mit/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+Source: [MIT Licence](https://choosealicense.com/licenses/mit/)
 
 Disclaimer: This website has been created and is maintained by solely Shrivardhan Goenka. The word 'zoom' in the name of the website is not related to the comapny Zoom([website](https://www.zoom.us)) in any way. 
