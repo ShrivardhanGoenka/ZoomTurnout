@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block carousel %}
+
+<style>
+body, html {
+height: 100%;
+margin: 0;
+color: white;
+}
+
+.bg {
+/* The image used */
+background-image: url("https://www.zoomturnout.com/static/accounts/pic5.jpeg");
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+</style>
+<div class="bg">
+<br><br>
+<div class="text-center">
+<h1>About</h1>
+<br><br>
+<h3>My name is Shrivardhan Goenka. I am a student from Kolkata, India. I would love to hear your feedback and any suggesstions from you about this website. Please feel free to contact me on: shrivardhangoenka@gmail.com</h3>
+<br>
+<h3>This website is made using the Django framework with the backend in python. All the code for the website is available on <a href="https://github.com/ShrivardhanGoenka/ZoomTurnout">GitHub</a>
+  <h3>I am also available on LinkedIn : https://www.linkedin.com/in/shrivardhan-goenka-00089b1b5/ </h3>
+</h3>
+</div>
+</div>
+
+{% endblock %}

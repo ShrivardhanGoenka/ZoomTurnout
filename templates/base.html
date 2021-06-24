@@ -45,7 +45,7 @@
 
 
   <body>
-
+           <div class="h">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" style="font-size:30px;" href="{% url 'home' %}"><div class="" >ZoomTurnout</div></a>
@@ -106,7 +106,10 @@
               {% endif %}
 
               <li class="nav-item">
-                <a class="nav-link" style="font-size:20px;" href="{% url 'setup' %}">  Setup Instructions    </a>
+                <a class="nav-link" style="font-size:20px;" href="{% url 'setup' %}">  Setup Instructions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="font-size:20px;" href="{% url 'about' %}">Contact</a>
               </li>
 
             </ul>
@@ -130,6 +133,35 @@
 
 
 
+       </div>
+
+       <!--
+       <div id="footer" class="">
+         <div class="text-center">
+           This website has been created and is maintained solely by Shrivardhan Goenka.<br>shrivardhangoenka@gmail.com
+         </div>
+       </div>-->
+
+       <footer>This website has been created and is maintained solely by Shrivardhan Goenka.<br>shrivardhangoenka@gmail.com</footer>
+
+       <style media="screen">
+          .h{
+            flex: 1;
+          }
+         body {
+           display: flex;
+           min-height: 100vh;
+           flex-direction: column;
+          }
+          footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #c1c7c2;
+            color: white;
+            text-align: center;
+          }
+       </style>
 
 
 

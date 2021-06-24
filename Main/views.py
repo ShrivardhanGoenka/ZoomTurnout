@@ -26,3 +26,6 @@ class HomePage(TemplateView):
 
 def setup(request):
     return render(request,'setup.html',{})
+
+def about(request):
+    return render(request,'about.html')

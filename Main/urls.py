@@ -25,5 +25,6 @@ urlpatterns = [
     path('accounts/',include("accounts.urls",namespace = "accounts")),
     path('accounts/',include("django.contrib.auth.urls")),
     path('zoom/',include('zoom.urls')),
-    path('setup/',views.setup,name='setup')
+    path('setup/',views.setup,name='setup'),
+    path('about/',views.about,name='about')
 ]

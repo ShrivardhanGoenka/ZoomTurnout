@@ -27,6 +27,13 @@ SECRET_KEY = 'django-insecure-n#5gopw6(*xh2__i&+t(n!2iusl2x169k7#ou-yl*h(3n$95+l
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'changepass.zoomturnout@gmail.com'
+EMAIL_HOST_PASSWORD = 'Nityanshi09'
 # Application definition
 
 # from django.contrib.auth.models import User, models
