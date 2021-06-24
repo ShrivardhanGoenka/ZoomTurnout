@@ -62,4 +62,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Source: [MIT Licence](https://choosealicense.com/licenses/mit/)
 
-Disclaimer: This website has been created and is maintained by solely Shrivardhan Goenka. The word 'zoom' in the name of the website is not related to the comapny Zoom([website](https://www.zoom.us)) in any way. 
+Disclaimer: This website has been created and is maintained solely by Shrivardhan Goenka. The word 'zoom' in the name of the website is not related to the comapny Zoom([website](https://www.zoom.us)) in any way. 
